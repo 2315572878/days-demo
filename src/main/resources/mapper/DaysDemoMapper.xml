@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.daysdemo.mapper.DaysDemoMapper">
+    <insert id="add">
+        INSERT into temp_date(id,day,is_holiday,weekday)VALUES(#{snowflakeNextId},#{date},#{isHoliday},#{weekday})
+    </insert>
+
+    <select id="selectMinDays" resultType="java.util.Date">
+        SELECT day FROM `temp_date` ORDER BY day LIMIT 1
+    </select>
+</mapper>
