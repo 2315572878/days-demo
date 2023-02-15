@@ -32,12 +32,8 @@ public class DaysDemoController {
 
     //如果数据库内无值则从此值开始计算
     private String str = "2023-12-32";
-
-
     private int count;
-
-    //每天十点执行,执行五十次后结束
-    @Scheduled(cron = "* * 10,11 * * ?")
+    @Scheduled(cron = "*/5 * * * * ?")
     private void process() throws Exception {
         log.info("任务执行次数：{}", count + 1);
         count++;
